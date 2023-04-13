@@ -1,6 +1,6 @@
 # Un-hide and use this explore, or copy the joins into another explore, to get all the fully nested relationships from this view
 explore: iam_roles {
-  hidden: yes
+
 
   join: iam_roles__user_accounts {
     view_label: "Iam Roles: User Accounts"
@@ -32,9 +32,13 @@ view: iam_roles {
     type: string
     sql: ${TABLE}.roles ;;
   }
+  measure: unique_roles {
+    type: count_distinct
+    sql: ${roles} ;;
+  }
 
   dimension: service_accounts {
-    # hidden: yes
+     hidden: yes
     sql: ${TABLE}.service_accounts ;;
   }
 
@@ -44,14 +48,18 @@ view: iam_roles {
   }
 
   dimension: user_accounts {
-    # hidden: yes
+     hidden: yes
     sql: ${TABLE}.user_accounts ;;
   }
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [roles]
   }
+  # measure: distinct_count {
+  #   type: count_distinct
+  #   sql: ${roles} ;;
+  # }
 }
 
 # The name of this view in Looker is "Iam Roles User Accounts"
@@ -82,4 +90,10 @@ view: iam_roles__service_accounts {
     type: string
     sql: iam_roles__service_accounts ;;
   }
+  measure: distinct_service_accounts {
+    type: count_distinct
+    sql: ${iam_roles__service_accounts} ;;
+  }
+
+
 }

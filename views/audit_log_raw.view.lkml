@@ -1,4 +1,5 @@
 # The name of this view in Looker is "Audit Log Raw"
+
 view: audit_log_raw {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
@@ -45,9 +46,21 @@ view: audit_log_raw {
     type: string
     sql: ${TABLE}.timestamp ;;
   }
+  dimension: id_with_log_name {
+    type: string
+    sql: ${insert_id} || '---' || ${log_name} ;;
+  }
 
   measure: count {
     type: count
-    drill_fields: [log_name]
+    drill_fields: [log_name,insert_id]
+  }
+  measure: distinct_insert_id {
+    type: count_distinct
+    sql: ${insert_id} ;;
+  }
+  measure: distinct_log_name {
+    type: count_distinct
+    sql: ${log_name} ;;
   }
 }
