@@ -75,6 +75,10 @@ view: iam_roles__user_accounts {
     type: string
     sql: iam_roles__user_accounts ;;
   }
+  measure: distinct_user_accounts {
+    type: count_distinct
+    sql: ${iam_roles__user_accounts} ;;
+  }
 }
 
 # The name of this view in Looker is "Iam Roles Service Accounts"

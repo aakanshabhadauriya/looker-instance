@@ -54,7 +54,7 @@ view: audit_log_raw {
 
   measure: count {
     type: count
-    drill_fields: [log_name,insert_id]
+    drill_fields: [insert_id]
   }
   measure: distinct_insert_id {
     type: count_distinct
@@ -63,5 +63,13 @@ view: audit_log_raw {
   measure: distinct_log_name {
     type: count_distinct
     sql: ${log_name} ;;
+  }
+  measure: count_severity_error {
+    type: count
+    filters: [severity: "ERROR"]
+  }
+  measure: count_severity_notice {
+    type: count
+    filters: [severity: "NOTICE"]
   }
 }
