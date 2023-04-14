@@ -72,4 +72,5 @@ view: audit_log_raw {
     type: count
     filters: [severity: "NOTICE"]
   }
+
 }
