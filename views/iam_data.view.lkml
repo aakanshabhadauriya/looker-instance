@@ -17,6 +17,7 @@ view: iam_data {
   }
 
 
+
   measure: count {
     type: count
     drill_fields: []
