@@ -16,6 +16,8 @@ view: iam_data {
     sql: ${TABLE}.Bindings ;;
   }
 
+
+
   measure: count {
     type: count
     drill_fields: []
