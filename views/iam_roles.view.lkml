@@ -61,7 +61,7 @@ view: iam_roles {
   #   type: count
   #   drill_fields: [roles]
   # }
-  #  measure: distinct_count {
+  #   measure: distinct_count {
   #   type: count_distinct
   #   sql: ${roles} ;;
   # }
