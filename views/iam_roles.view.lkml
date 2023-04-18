@@ -61,10 +61,10 @@ view: iam_roles {
   #   type: count
   #   drill_fields: [roles]
   # }
-  #   measure: distinct_count {
-  #   type: count_distinct
-  #   sql: ${roles} ;;
-  # }
+    measure: distinct_count {
+    type: count_distinct
+    sql: ${roles} ;;
+  }
 }
 
 # The name of this view in Looker is "Iam Roles User Accounts"
