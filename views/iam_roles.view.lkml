@@ -57,11 +57,11 @@ view: iam_roles {
     drill_fields: [roles]
   }
 
-  measure: count_test {
-    type: count
-    drill_fields: [roles]
-  }
-  # measure: distinct_count {
+  # measure: count_test {
+  #   type: count
+  #   drill_fields: [roles]
+  # }
+  #  measure: distinct_count {
   #   type: count_distinct
   #   sql: ${roles} ;;
   # }
