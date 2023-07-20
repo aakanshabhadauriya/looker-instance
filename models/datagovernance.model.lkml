@@ -6,3 +6,4 @@ include: "/views/**/*.view"
 explore: audit_log_raw {}
 
 explore: iam_data {}
+explore: employee {}
