@@ -12,6 +12,7 @@ datagroup: multipleinstance_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+
 persist_with: multipleinstance_default_datagroup
 
 # Explores allow you to join together different views (database tables) based on the
@@ -25,26 +26,24 @@ persist_with: multipleinstance_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
+#explore: iam_roles {
+  #join: iam_roles__user_accounts {
+    #view_label: "Iam Roles: User Accounts"
+    #sql: LEFT JOIN UNNEST(${iam_roles.user_accounts}) as iam_roles__user_accounts ;;
+    #relationship: one_to_many
+  #}
 
-
-explore: iam_roles {
-  join: iam_roles__user_accounts {
-    view_label: "Iam Roles: User Accounts"
-    sql: LEFT JOIN UNNEST(${iam_roles.user_accounts}) as iam_roles__user_accounts ;;
-    relationship: one_to_many
-  }
-
-  join: iam_roles__service_accounts {
-    view_label: "Iam Roles: Service Accounts"
-    sql: LEFT JOIN UNNEST(${iam_roles.service_accounts}) as iam_roles__service_accounts ;;
-    relationship: one_to_many
-  }
-}
-
+  #join: iam_roles__service_accounts {
+    #view_label: "Iam Roles: Service Accounts"
+    #sql: LEFT JOIN UNNEST(${iam_roles.service_accounts}) as iam_roles__service_accounts ;;
+    #relationship: one_to_many
+  #}
+#}
 
 
 
+explore: employee {}
 
-explore: iam_data {}
+#explore: iam_data {}
 
-explore: audit_log_raw {}
+#explore: audit_log_raw {}
