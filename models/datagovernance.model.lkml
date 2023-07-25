@@ -3,7 +3,7 @@ connection: "data_governance_demo"
 
 # include all the views
 include: "/views/**/*.view"
-explore: audit_log_raw {}
+#explore: audit_log_raw {}
 
-explore: iam_data {}
+#explore: iam_data {}
 explore: employee {}
